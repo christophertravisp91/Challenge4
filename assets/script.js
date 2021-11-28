@@ -34,40 +34,22 @@ btn.addEventListener("click", function(){
     console.log("Clicked!");
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function countdown() {
-    var timeLeft = 60;
-
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 1) {
-        
-            timerEl.textContent = timeLeft + ' seconds remaining';
-        // Decrement `timeLeft` by 1
-            timeLeft--;
-        } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-            timerEl.textContent = timeLeft + ' second remaining';
-            timeLeft--;
-        } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-            timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-        showScore();
+(function() {
+    function startTimer(){
+    var sec = 60;
+    var timer = setInterval(function(){
+        document.getElementById("Timer").innerHTML=':'+sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+            alert("Time is up!")
         }
     }, 1000);
 }
+    document.getElementById("incorrect").addEventListener("click", function() {
+        sec -= 5;
+        document.getElementById("Timer").innerHTML=":"+sec;
+    });
+    startTimer();
+    });
+
