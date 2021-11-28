@@ -37,6 +37,10 @@ body {
     text-align: center;
 }
 
+.hud-item {
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     .choice-container {
         min-width: 25rem;
