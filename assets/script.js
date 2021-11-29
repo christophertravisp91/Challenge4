@@ -1,7 +1,19 @@
 let question = {
         title: "Which are the acceptable containment elements for an Array?",
         choice: [" {} ", " () ", " [] ", " :: "],
-        correctAnswer: 2
+        correctAnswer: 2,
+
+        title: "What does API stand for?",
+        choice: ["Application Programming Interface", "Application Product Integration", "Application Product Interface", "Application Production Information"],
+        correctAnswer: 2,
+
+        title: "Which tag links java script to the html?",
+        choice: ["<link>", "<href>", "<src>", "<script>"],
+        correctAnswer: 2,
+
+        title: "What saves items to local storage?",
+        choice: ["getItem", "setItem", "removeItem", "addItem"],
+        correctAnswer: 2,
     };
 
 
@@ -53,3 +65,26 @@ btn.addEventListener("click", function(){
     startTimer();
     });
 
+// Adding High Scores to Local Storage
+
+const NO_OF_HIGH_SCORES = 10;
+const HIGH_SCORES = "highScores";
+const highScoreString = localStorage.getItem(HIGH_SCORES);
+const highScores = JSON.parse(highScoreString) ?? [];
+const lowestScore = highScores[NO_OF_HIGH_SCORES — 1] ? .score ?? 0;
+
+
+function checkHighScore(score) {
+    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+    const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+    
+    if (score > lowestScore) {
+      saveHighScore(score, highScores); // TODO
+      showHighScores(); // TODO
+    }
+}
+
+function gameOver() {
+    // Other game over logic.
+    checkHighScore(account.score);
+}
